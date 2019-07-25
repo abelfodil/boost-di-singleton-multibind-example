@@ -6,6 +6,8 @@
 
 class OperationBase {};
 
+using Operations = std::vector<std::shared_ptr<OperationBase>>;
+
 class Operation1 : public OperationBase {
 public:
   Operation1() { std::cout << "Operation1 constructed." << std::endl; }
@@ -20,7 +22,7 @@ public:
 
 class User1 {
 public:
-  explicit User1(std::vector<std::shared_ptr<OperationBase>>) {
+  explicit User1(Operations) {
     std::cout << "User1 constructed." << std::endl;
   }
   ~User1() { std::cout << "User1 destructed." << std::endl; }
@@ -28,7 +30,7 @@ public:
 
 class User2 {
 public:
-  explicit User2(std::vector<std::shared_ptr<OperationBase>>) {
+  explicit User2(Operations) {
     std::cout << "User2 constructed." << std::endl;
   }
   ~User2() { std::cout << "User2 destructed." << std::endl; }
